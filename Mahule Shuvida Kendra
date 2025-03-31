@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> माहुले शुविदा केंद्र | गोंदिया</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* बेसिक रीसेट एंड फॉन्ट */
+        * {
+            margin: 0;गोंदिया
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Nirmala UI', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* हेडर स्टाइल */
+        header {
+            background: linear-gradient(135deg, #1e5799 0%, #207cca 100%);
+            color: white;
+            padding: 1rem 5%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo img {
+            height: 50px;
+            border-radius: 50%;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.2rem;
+        }
+        
+        .logo-text p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        /* नेविगेशन */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
+        }
+        
+        nav ul li a:hover {
+            border-bottom: 2px solid #ffcc00;
+        }
+        
+        /* हीरो सेक्शन */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1586771107445-d3ca888129ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #ffcc00;
+            color: #333;
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+        
+        /* ब्लॉग सेक्शन */
+        .blog-section {
+            padding: 5rem 5%;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: #1e5799;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: #ffcc00;
+        }
+        
+        .blog-posts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .blog-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .blog-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .blog-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+        
+        .blog-card:hover .blog-img img {
+            transform: scale(1.1);
+        }
+        
+        .blog-content {
+            padding: 1.5rem;
+        }
+        
+        .blog-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #1e5799;
+        }
+        
+        .blog-content .date {
+            color: #777;
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
+            display: block;
+        }
+        
+        .blog-content p {
+            color: #555;
+            margin-bottom: 1.2rem;
+        }
+        
+        .read-more {
+            color: #1e5799;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: 0.3s;
+        }
+        
+        .read-more:hover {
+            color: #ffcc00;
+        }
+        
+        /* फुटर */
+        footer {
+            background: #1e5799;
+            color: white;
+            padding: 3rem 5% 1.5rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: #ffcc00;
+        }
+        
+        .footer-col p {
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+            opacity: 0.9;
+        }
+        
+        .footer-links a:hover {
+            color: #ffcc00;
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            transition: 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: #ffcc00;
+            color: #333;
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* रिस्पॉन्सिव डिजाइन */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- हेडर सेक्शन -->
+    <header>
+        <div class="logo">
+            <img src="https://via.placeholder.com/100" alt="माहुले शुविदा केंद्र  लोगो">
+            <div class="logo-text">
+                <h1>माहुले शुविदा केंद्र </h1>
+                <p>गोंदिया, महाराष्ट्र</p>
+            </div>
+        </div>
+        
+        <nav>
+            <ul>
+                <li><a href="#">होम</a></li>
+                <li><a href="#">सेवाएं</a></li>
+                <li><a href="#">योजनाएं</a></li>
+                <li><a href="#">ब्लॉग</a></li>
+                <li><a href="#">संपर्क</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- हीरो सेक्शन -->
+    <section class="hero">
+        <h2>माहुले शुविदा केंद्र  में आपका स्वागत है</h2>
+        <p>किसान भाइयों के लिए सरकारी योजनाओं, कृषि तकनीक और ग्रामीण विकास से जुड़ी नवीनतम जानकारी</p>
+        <a href="#" class="btn">और जानें</a>
+    </section>
+
+    <!-- ब्लॉग सेक्शन -->
+    <section class="blog-section">
+        <div class="section-title">
+            <h2>हमारे नवीनतम ब्लॉग</h2>
+        </div>
+        
+        <div class="blog-posts">
+            <!-- ब्लॉग कार्ड 1 -->
+            <article class="blog-card">
+                <div class="blog-img">
+                    <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="PM किसान योजना">
+                </div>
+                <div class="blog-content">
+                    <h3>PM किसान योजना: पूरी जानकारी</h3>
+                    <span class="date">15 जून 2023</span>
+                    <p>PM किसान योजना में पंजीकरण कैसे करें, पात्रता और आवश्यक दस्तावेजों की पूरी जानकारी...</p>
+                    <a href="#" class="read-more">पढ़ना जारी रखें <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+            
+            <!-- ब्लॉग कार्ड 2 -->
+            <article class="blog-card">
+                <div class="blog-img">
+                    <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="जैविक खेती">
+                </div>
+                <div class="blog-content">
+                    <h3>जैविक खेती: लाभ और तकनीक</h3>
+                    <span class="date">10 जून 2023</span>
+                    <p>जैविक खेती करने के आधुनिक तरीके और सरकार द्वारा दी जाने वाली सब्सिडी...</p>
+                    <a href="#" class="read-more">पढ़ना जारी रखें <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+            
+            <!-- ब्लॉग कार्ड 3 -->
+            <article class="blog-card">
+                <div class="blog-img">
+                    <img src="https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="मृदा स्वास्थ्य">
+                </div>
+                <div class="blog-content">
+                    <h3>मृदा स्वास्थ्य कार्ड: कैसे लाभ उठाएं</h3>
+                    <span class="date">5 जून 2023</span>
+                    <p>मृदा स्वास्थ्य कार्ड क्या है और इससे किसान कैसे अपनी उपज बढ़ा सकते हैं...</p>
+                    <a href="#" class="read-more">पढ़ना जारी रखें <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- फुटर -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>हमारे बारे में</h3>
+                <p>माहुले शुविदा केंद्र  किसानों को सरकारी योजनाओं और कृषि संबंधी जानकारी प्रदान करने के लिए समर्पित है।</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h3>त्वरित लिंक</h3>
+                <ul class="footer-links">
+                    <li><a href="#">होम</a></li>
+                    <li><a href="#">सेवाएं</a></li>
+                    <li><a href="#">योजनाएं</a></li>
+                    <li><a href="#">ब्लॉग</a></li>
+                    <li><a href="#">संपर्क</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>संपर्क करें</h3>
+                <p><i class="fas fa-map-marker-alt"></i> हिवारा, गोंडिया, महाराष्ट्र</p>
+                <p><i class="fas fa-phone"></i> +91 9876543210</p>
+                <p><i class="fas fa-envelope"></i> info@mahuleshuvida.com</p>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            &copy; 2025 माहुले शुविदा केंद्र . सर्वाधिकार सुरक्षित
+        </div>
+    </footer>
+
+    <!-- जावास्क्रिप्ट -->
+    <script>
+        // ब्लॉग कार्ड क्लिक इवेंट
+        document.querySelectorAll('.blog-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const blogTitle = this.querySelector('h3').textContent;
+                alert(`आप "${blogTitle}" ब्लॉग पढ़ने जा रहे हैं!`);
+                // वास्तविक वेबसाइट में यहाँ आप ब्लॉग पेज पर रीडायरेक्ट कर सकते हैं
+            });
+        });
+        
+        // सोशल मीडिया लिंक
+        document.querySelectorAll('.social-links a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const platform = this.querySelector('i').className.split('-')[1];
+                alert(`आप माहुले शुविदा केंद्र  के ${platform} पेज पर जाएंगे`);
+            });
+        });
+        
+        console.log('वेबसाइट सफलतापूर्वक लोड हो गई है');
+    </script>
+</body>
+</html>
